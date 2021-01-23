@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Traits\ApiResponser;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +12,7 @@ class AuthController extends Controller
 {
     use ApiResponser;
 
-    public function register(Request $request)
+    public function register(Request $request): JsonResponse
     {
         $attr = $request->validate([
             'name' => 'required|string|max:255',
@@ -30,7 +31,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function login(Request $request)
+    public function login(Request $request): JsonResponse
     {
         $attr = $request->validate([
             'email' => 'required|string|email',
@@ -46,7 +47,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout()
+    public function logout(): JsonResponse
     {
         auth()->user()->tokens()->delete();
 

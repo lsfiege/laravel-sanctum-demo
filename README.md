@@ -5,4 +5,4 @@
 ## 🚀 Usage
 1. Start server with `php artisan serve`
 2. Send a `POST` request to `/api/auth/register` including the following params: `name`, `email`, `password` and `password_confirmation`.
-3. Copy obtained authentication token and use it by sending a request to `/api/me` including the `Authentication: Bearer <token>` header.
+3. Copy obtained authentication token and use it by sending a `GET` request to `/api/me` including the `Authentication: Bearer <token>` header.
